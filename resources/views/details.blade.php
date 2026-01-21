@@ -1,0 +1,173 @@
+@extends('master')
+@section('content')
+    <!-- Product Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Images -->
+                <div class="col-lg-6">
+
+                    <div id="productSlider" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="3000"
+                        data-bs-pause="hover" data-bs-wrap="true">
+
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="zoom-box">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+                                        class="d-block w-100 product-img-main">
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="zoom-box">
+                                    <img src="https://images.unsplash.com/photo-1600180758890-6b94519a3c3b"
+                                        class="d-block w-100 product-img-main">
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="zoom-box">
+                                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+                                        class="d-block w-100 product-img-main">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="d-flex gap-2">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" class="thumb-img active"
+                            onclick="slideTo(0,this)">
+                        <img src="https://images.unsplash.com/photo-1600180758890-6b94519a3c3b" class="thumb-img"
+                            onclick="slideTo(1,this)">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" class="thumb-img"
+                            onclick="slideTo(2,this)">
+                    </div>
+
+                </div>
+
+                <!-- Info -->
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Nike Running Shoes</h2>
+
+                    <div class="rating mb-2">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <span class="text-muted ms-2">(124 reviews)</span>
+                    </div>
+
+                    <p>
+                        <span class="text-muted fs-5"><del>$150</del></span>
+                        <span class="price ms-2">$120</span>
+                        <span class="badge bg-success ms-2">20% OFF</span>
+                    </p>
+
+                    <p class="text-muted">Comfortable & durable running shoes.</p>
+
+                    <!-- Size -->
+                    <div class="mb-3">
+                        <label class="fw-bold">Size</label>
+                        <div class="d-flex gap-2 mt-1">
+                            <button class="btn btn-outline-dark size-btn">40</button>
+                            <button class="btn btn-outline-dark size-btn">41</button>
+                            <button class="btn btn-outline-dark size-btn">42</button>
+                            <button class="btn btn-outline-dark size-btn">43</button>
+                        </div>
+                    </div>
+
+                    <!-- Color -->
+                    <div class="mb-3">
+                        <label class="fw-bold">Color</label>
+                        <div class="d-flex gap-2 mt-1">
+                            <div class="border color-btn bg-dark"></div>
+                            <div class="border color-btn bg-danger"></div>
+                            <div class="border color-btn bg-primary"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="d-flex align-items-center gap-3 my-3">
+                        <button class="btn btn-outline-secondary" onclick="qty(-1)">-</button>
+                        <input type="text" class="form-control w-25 text-center" id="quantity" value="1">
+                        <button class="btn btn-outline-secondary" onclick="qty(1)">+</button>
+                    </div>
+
+                    <button class="btn btn-primary"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <h4 class="fw-bold mb-3">Customer Reviews</h4>
+
+            <div class="border rounded p-3 bg-white">
+                <strong>Rahim</strong>
+                <div class="rating">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <p class="text-muted mb-0">Very comfortable shoes.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="py-5">
+        <div class="container">
+            <h4 class="fw-bold mb-4">Related Products</h4>
+
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h6>Smart Watch</h6>
+                            <p class="fw-bold text-primary">$89</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h6>Headphone</h6>
+                            <p class="fw-bold text-primary">$79</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1a1" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h6>Sports Bag</h6>
+                            <p class="fw-bold text-primary">$49</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h6>Jacket</h6>
+                            <p class="fw-bold text-primary">$99</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>   
+@endsection
