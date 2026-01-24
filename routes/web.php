@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\frontendController;
 use Illuminate\Support\Facades\Auth;
@@ -16,3 +17,12 @@ Route ::get('/details', [frontendController::class, 'productDetails']);
 Auth::routes();
 
 Route::get('/admin/dashboard', [dashboardController::class, 'dashboard']);
+
+
+// Category Routes
+Route::get('/category/list', [categoryController::class, 'categoryList']);
+Route::get('/category/add', [categoryController::class, 'categoryAdd']);
+Route::post('/category/store', [categoryController::class, 'categoryStore']);
+Route::get('/category/edit/{id}', [categoryController::class, 'categoryEdit']);
+Route::post('/category/update/{id}', [categoryController::class, 'categoryUpdate']);
+Route::get('/category/delete/{id}', [categoryController::class, 'categoryDelete']);

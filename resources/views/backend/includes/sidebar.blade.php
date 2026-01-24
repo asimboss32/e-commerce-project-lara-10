@@ -46,13 +46,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/admin/category/list') }}" class="nav-link">
+                              <a href="{{ url('/category/list') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>List</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/admin/category/create') }}" class="nav-link">
+                              <a href="{{ url('/category/add') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Add</p>
                               </a>

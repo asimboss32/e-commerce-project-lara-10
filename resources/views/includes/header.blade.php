@@ -18,11 +18,11 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href={{ url('/category') }}>Fashion</a></li>
-                            <li><a class="dropdown-item" href={{ url('/category') }}>Electronics</a></li>
-                            <li><a class="dropdown-item" href={{ url('/category') }}>Accessories</a></li>
-                            <li><a class="dropdown-item" href={{ url('/category') }}>Shoes</a></li>
+                            @foreach ($categoriesGlobal as $category)
+                                <li><a class="dropdown-item" href={{ url('/category') }}>{{ $category->name }}</a></li>
+                                @endforeach
                         </ul>
+                            
                     </li>
 
                     <li class="nav-item">
