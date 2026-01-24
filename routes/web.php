@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\frontendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [frontendController::class, 'index']);
@@ -10,3 +12,7 @@ Route::get('/checkout', [frontendController::class, 'checkout']);
 Route::get('/contact', [frontendController::class, 'contact']);
 Route::get('/product', [frontendController::class, 'product']);
 Route ::get('/details', [frontendController::class, 'productDetails']);
+
+Auth::routes();
+
+Route::get('/admin/dashboard', [dashboardController::class, 'dashboard']);
