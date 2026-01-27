@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('cat-id');
-            $table->double('regular-price');
-            $table->double('discount-price')->nullable();
-            $table->double('buying-price');
+            $table->unsignedBigInteger('cat_id');
+            $table->double('regular_price');
+            $table->double('discount_price')->nullable();
+            $table->double('buying_price');
             $table->integer('quantity');
-            $table->string('sku-code');
+            $table->string('sku_code');
             $table->text('description');
             $table->string('image');
-            $table->string('discount-percentage')->nullable();
+            $table->string('discount_percentage')->nullable();
             $table->timestamps();
         });
     }

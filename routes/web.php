@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\productController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\frontendController;
 use Illuminate\Support\Facades\Auth;
@@ -26,3 +27,11 @@ Route::post('/category/store', [categoryController::class, 'categoryStore']);
 Route::get('/category/edit/{id}', [categoryController::class, 'categoryEdit']);
 Route::post('/category/update/{id}', [categoryController::class, 'categoryUpdate']);
 Route::get('/category/delete/{id}', [categoryController::class, 'categoryDelete']);
+
+// product Routes
+Route::get('/product/list', [productController::class, 'productList']);
+Route::get('/product/add', [productController::class, 'productAdd']);
+Route::post('/product/store', [productController::class, 'productStore']);
+Route::get('/product/edit/{id}', [productController::class, 'productEdit']);
+Route::post('/product/update/{id}', [productController::class, 'productUpdate']);
+Route::get('/product/delete/{id}', [productController::class, 'productDelete']);
