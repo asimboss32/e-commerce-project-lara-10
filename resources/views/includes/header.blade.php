@@ -19,7 +19,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             @foreach ($categoriesGlobal as $category)
-                                <li><a class="dropdown-item" href={{ url('/category') }}>{{ $category->name }}</a></li>
+                                <li><a class="dropdown-item" href={{ url('/category/'.$category->id) }}>{{ $category->name }}</a></li>
                                 @endforeach
                         </ul>
                             

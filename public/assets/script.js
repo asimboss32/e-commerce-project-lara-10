@@ -87,7 +87,36 @@ function updateTotals() {
     const delivery = parseInt(document.getElementById('delivery-charge').textContent.replace('$', ''));
     document.getElementById('total').textContent = `$${subtotal + delivery}`;
 }
+function slideTo(index, el) {
+        const slider = document.querySelector('#productSlider');
+        const carousel = bootstrap.Carousel.getInstance(slider) || new bootstrap.Carousel(slider);
+        carousel.to(index);
 
+        document.querySelectorAll('.thumb-img').forEach(img => img.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    function qty(change) {
+        let input = document.getElementById('quantity');
+        let val = parseInt(input.value) || 1;
+        val += change;
+        if (val < 1) val = 1;
+        input.value = val;
+    }
+
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    document.querySelectorAll('.color-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 
 
 
