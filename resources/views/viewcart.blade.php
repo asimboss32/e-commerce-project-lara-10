@@ -5,26 +5,28 @@
             <h2 class="fw-bold mb-4">Your Cart</h2>
             <div class="row">
                 <div class="col-md-8">
-                    <ul class="list-group mb-3" id="cart-items">
+                  @foreach ($cartProducts as $cartProduct)
+                        <ul class="list-group mb-3" id="cart-items">
                         <li class="list-group-item d-flex align-items-center justify-content-between">
-                            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
+                            <img src="{{ asset('backend/images/product/'.$cartProduct->product->image) }}"
                                 class="product-cart-img me-3">
                             <div class="flex-grow-1">
-                                <p class="mb-1">Smart Watch</p>
-                                <small>Size: M | Color: Black</small>
+                                <p class="mb-1">{{ $cartProduct->product->name }}</p>
+                                <small>Size: {{ $cartProduct->size }} | Color: {{ $cartProduct->color }}</small>
                                 <div class="d-flex align-items-center gap-2 mt-1 qty-box">
-                                    <button class="btn btn-sm btn-outline-secondary"
-                                        onclick="updateQty(this,-1)">-</button>
-                                    <input type="text" class="form-control form-control-sm qty-input" value="1"
+                                    
+                                    <input type="text" class="form-control form-control-sm qty-input" value="{{ $cartProduct->quantity }}"
                                         readonly>
-                                    <button class="btn btn-sm btn-outline-secondary"
-                                        onclick="updateQty(this,1)">+</button>
-                                    <span class="remove-btn ms-2" onclick="removeItem(this)">×</span>
+                                    
+                                    <a href="{{ url('/remove-from-cart/'.$cartProduct->id) }}" class="btn btn-sm btn-danger">Remove</a>
                                 </div>
                             </div>
-                            <strong class="ms-2 item-price">$99</strong>
+                            <strong class="ms-2 item-price">${{ $cartProduct->quantity * $cartProduct->price }}</strong>
                         </li>
+                        
                     </ul>
+                  @endforeach
+                    
                     <a href="{{ url('/checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
                 </div>
 

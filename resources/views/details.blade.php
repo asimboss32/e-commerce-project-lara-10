@@ -54,12 +54,14 @@
 
                 <p class="text-muted">{!! $products->description !!}</p>
 
-                <!-- Size -->
+             <form action="{{ url('/add-to-cart-details/'.$products->id) }}" method="POST">
+                @csrf
+                   <!-- Size -->
                 <div class="mb-3">
                     <label class="fw-bold">Size</label>
                     <div class="d-flex gap-2 mt-1">
                         @foreach ($products->sizes as $size)
-                            <div class="border size-btn">{{ $size->size }}</div>
+                            <div class="border size-btn"> <input type="radio" name="size" value="{{ $size->size }}"class="category-item-radio"> {{ $size->size }}</div>
                         @endforeach
 
                         
@@ -70,22 +72,32 @@
                 <div class="mb-3">
                     <label class="fw-bold">Color</label>
                     <div class="d-flex gap-2 mt-1">
-                        @foreach ($products->colors as $color)
-                            <div class="border color-btn bg-{{ $color->color }}"></div>
-                        @endforeach
+                         @foreach ($products->colors as $color)
+                                        <div class="product-details-select-item-outer">
+                                            <input type="radio" name="color" id="color-{{ $color->id }}" value="{{$color->color_name}}" class="category-item-radio">
+                                            <label for="color-{{ $color->id }}" class="category-item-label">
+                                                {{$color->color_name}}
+                                            </label>
+                                        </div>
+                                        @endforeach
                     </div>
                 </div>
 
                 <!-- Quantity -->
                 <div class="d-flex align-items-center gap-3 my-3">
-                    <button class="btn btn-outline-secondary" onclick="qty(-1)">-</button>
-                    <input type="text" class="form-control w-25 text-center" id="quantity" value="1">
-                    <button class="btn btn-outline-secondary" onclick="qty(1)">+</button>
+                    <a class="btn btn-outline-secondary" onclick="qty(-1)">-</a>
+                    <input type="text" name="quantity"  class="form-control w-25 text-center" id="quantity" value="1">
+                    <a class="btn btn-outline-secondary" onclick="qty(1)">+</a>
                 </div>
 
-                <button class="btn btn-primary btn-lg">
+                <button class="btn btn-primary btn-lg" type="submit" value="ad_to_cart" name="action">
                     <i class="bi bi-cart-plus"></i> Add to Cart
                 </button>
+                <button class="btn btn-primary btn-lg" type="submit" name="action" value="buy_now">
+                     
+                    <i class="bi bi-cart-plus"></i> Quick Buy
+                </button>
+             </form>
 
             </div>
         </div>

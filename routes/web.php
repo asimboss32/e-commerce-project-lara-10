@@ -14,6 +14,9 @@ Route::get('/checkout', [frontendController::class, 'checkout']);
 Route::get('/contact', [frontendController::class, 'contact']);
 Route::get('/product', [frontendController::class, 'product']);
 Route::get('/test/{id}', [frontendController::class, 'test']);
+Route::get('add-to-cart/{id}', [frontendController::class, 'addToCart']);
+Route::post('add-to-cart-details/{id}', [frontendController::class, 'addToCartDetails']);
+Route::get('remove-from-cart/{id}', [frontendController::class, 'removeFromCart']);
 
 Auth::routes();
 

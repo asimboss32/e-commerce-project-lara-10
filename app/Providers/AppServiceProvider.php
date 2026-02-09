@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Cart;
 use App\Models\category;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view) {
             $view->with ('categoriesGlobal', category::get()); //sobgulo category sob gulo page dekhanor jonno
+            $view->with('cartProducts', Cart::where('ip_address', request()->ip())->with('product')->get());
+            $view->with('cartCount', Cart::where('ip_address', request()->ip())->with('product')->count());
         });
     
     }

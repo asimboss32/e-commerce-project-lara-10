@@ -1,4 +1,5 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ url('/') }}">MyShop</a>
 
@@ -41,20 +42,28 @@
                 <!-- Cart -->
                 <div class="dropdown ms-auto">
                     <a class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="bi bi-cart"></i> Cart (1)
+                        <i class="bi bi-cart"></i> Cart ({{ $cartProducts->count() }})
                     </a>
                     <div class="dropdown-menu dropdown-menu-end p-3" style="min-width:300px;">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" width="50"
+                        @php
+                            $totalCartPrice = 0;
+                        @endphp
+                       @foreach ($cartProducts as $cartProduct)
+                       @php
+                           $totalCartPrice = $totalCartPrice + $cartProduct->quantity*$cartProduct->price;
+                       @endphp
+                            <div class="d-flex align-items-center mb-2">
+                            <img src="{{ asset('backend/images/product/'.$cartProduct->product->image) }}" width="50"
                                 class="rounded me-2">
                             <div class="flex-grow-1">
-                                <p class="mb-0">Smart Watch</p>
-                                <small>$99</small>
+                                <p class="mb-0">{{ $cartProduct->product->name }}</p>
+                                <small>${{ $cartProduct->price }}</small>
                             </div>
-                            <button class="btn btn-sm btn-danger">×</button>
+                           <a href="{{ url('/remove-from-cart/'.$cartProduct->id) }}" class="btn btn-sm btn-danger">Remove</a>
                         </div>
+                       @endforeach
                         <hr>
-                        <p class="fw-bold">Total: $99</p>
+                        <p class="fw-bold">Total: ${{ $totalCartPrice }}</p>
                         <div class="d-grid gap-2">
                             <a href="{{ url('/cart') }}" class="btn btn-outline-primary btn-sm">View Cart</a>
                             <a href="{{ url('/checkout') }}" class="btn btn-primary btn-sm">Checkout</a>

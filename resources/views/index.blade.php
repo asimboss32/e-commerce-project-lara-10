@@ -78,7 +78,7 @@
                             <p class="fw-bold text-primary">${{ $product->regular_price }}</p>
                             @endif
                           
-                            <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
+                            <button class="btn btn-outline-primary btn-sm"><a class="text-decoration-none" href="{{ url('/add-to-cart/'.$product->id) }}">Add to Cart</a></button>
                         </div>
                     </div>
                 </div>
