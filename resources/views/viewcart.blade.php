@@ -5,7 +5,14 @@
             <h2 class="fw-bold mb-4">Your Cart</h2>
             <div class="row">
                 <div class="col-md-8">
+                    <?php
+                        
+                        $subtotal = 0;
+                        ?>
                   @foreach ($cartProducts as $cartProduct)
+                  <?php 
+                          $subtotal = $subtotal+ $cartProduct->quantity*$cartProduct->price
+                          ?>
                         <ul class="list-group mb-3" id="cart-items">
                         <li class="list-group-item d-flex align-items-center justify-content-between">
                             <img src="{{ asset('backend/images/product/'.$cartProduct->product->image) }}"
@@ -37,15 +44,15 @@
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between">
                                     <span>Sub Total</span>
-                                    <strong id="subtotal">$99</strong>
+                                    <strong id="subtotal">${{$subtotal}}</strong>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between">
                                     <span>Delivery Charge</span>
-                                    <strong id="delivery-charge">$10</strong>
+                                    <strong id="delivery-charge">$100</strong>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between fw-bold">
                                     <span>Total</span>
-                                    <strong id="total">$109</strong>
+                                    <strong id="total">${{$subtotal+100}}</strong>
                                 </li>
                             </ul>
                             <a href="{{ url('/checkout') }}" class="btn btn-primary w-100">Checkout</a>

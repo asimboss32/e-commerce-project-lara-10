@@ -17,6 +17,11 @@ Route::get('/test/{id}', [frontendController::class, 'test']);
 Route::get('add-to-cart/{id}', [frontendController::class, 'addToCart']);
 Route::post('add-to-cart-details/{id}', [frontendController::class, 'addToCartDetails']);
 Route::get('remove-from-cart/{id}', [frontendController::class, 'removeFromCart']);
+Route::get('/search-products', [frontendController::class, 'searchProducts']);
+
+//order rutes
+Route::post('/confirm-order', [frontendController::class, 'comfirmOrder']);
+Route::get('/confirmed-orders/{invoice_no}', [frontendController::class, 'thankYou']);
 
 Auth::routes();
 

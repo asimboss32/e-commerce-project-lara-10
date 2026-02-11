@@ -118,5 +118,4 @@ function slideTo(index, el) {
         });
     });
 
-
-
+   

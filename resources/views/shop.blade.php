@@ -18,11 +18,14 @@
                 <div class="col-lg-3">
                     <div class="filter-box p-3">
                         <h5 class="fw-bold">Categories</h5>
-                        <ul class="list-unstyled">
-                            <li><input type="checkbox"> Fashion</li>
-                            <li><input type="checkbox"> Electronics</li>
-                            <li><input type="checkbox"> Accessories</li>
+                        <form action="/product" id="collapseOn" method="GET">
+                            @csrf
+                            <ul class="list-unstyled">
+                          @foreach ($categoriesGlobal as $category)
+                                <li><input name="cat_id" id="cat_id" value="{{ $category->id }}" onclick="submitFilterForm()" type="checkbox" class="checkbox"/> {{ $category->name }}</li>
+                          @endforeach
                         </ul>
+                        </form>
                         <hr>
                         <h5 class="fw-bold">Price</h5>
                         <input type="range" class="form-range">
@@ -80,3 +83,11 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script>
+        function submitFilterForm(){
+            document.getElementById('collapseOn').submit();
+        }
+    </script>
+@endpush

@@ -34,8 +34,9 @@
                     </li>
                 </ul>
 
-                <form class="d-flex mx-auto" style="max-width:400px;">
-                    <input class="form-control me-2" type="search" placeholder="Search products">
+                <form action="{{ url('/search-products') }}" method="GET" class="d-flex mx-auto" style="max-width:400px;">
+                    @csrf
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search products">
                     <button class="btn btn-outline-light">Search</button>
                 </form>
 
