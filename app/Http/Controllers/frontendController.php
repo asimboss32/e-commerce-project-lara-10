@@ -141,6 +141,7 @@ class frontendController extends Controller
         $order->customer_name = $request->customer_name;
         $order->customer_phone = $request->customer_phone;
         $order->customer_address = $request->customer_address;
+        $order->delivery_charge = $request->delivery_charge;
         $order->price = $request->total;
 
 

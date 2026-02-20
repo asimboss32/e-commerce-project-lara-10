@@ -93,31 +93,31 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/admin/all-order/list') }}" class="nav-link">
+                              <a href="{{ url('/all-orders/list') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>All Order List</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/admin/status-wise-order/pending') }}" class="nav-link">
+                              <a href="{{ url('/status-wise-order/pending') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Pending Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/admin/status-wise-order/confirmed') }}" class="nav-link">
+                              <a href="{{ url('/status-wise-order/confirmed') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Confirmed Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/admin/status-wise-order/delivered') }}" class="nav-link">
+                              <a href="{{ url('/status-wise-order/delivered') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Deliverd Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/admin/status-wise-order/cancelled') }}" class="nav-link">
+                              <a href="{{ url('/status-wise-order/cancelled') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Cancelled Orders</p>
                               </a>

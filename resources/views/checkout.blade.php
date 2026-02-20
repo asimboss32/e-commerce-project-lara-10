@@ -83,7 +83,8 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span>Delivery Charge</span>
-                                        <strong id="delivery-charge">$100</strong>
+                                        <strong id="delivery-charge" name="delivery_charge">$100</strong>
+                                        <input type="hidden" name="delivery_charge" value="100">
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between fw-bold">
                                         <span>Total</span>

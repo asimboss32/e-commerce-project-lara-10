@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\orderController;
 use App\Http\Controllers\backend\productController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\frontendController;
@@ -43,3 +44,11 @@ Route::post('/product/store', [productController::class, 'productStore']);
 Route::get('/product/edit/{id}', [productController::class, 'productEdit']);
 Route::post('/product/update/{id}', [productController::class, 'productUpdate']);
 Route::get('/product/delete/{id}', [productController::class, 'productDelete']);
+
+//order routes
+Route::get('/all-orders/list', [orderController::class, 'allOrdersList']);
+Route::get('/order/edit/{id}', [orderController::class, 'orderEdit']);
+Route::get('/order/update-status/{status}/{id}', [orderController::class, 'orderUpdateStatus']);
+Route::post('/order/update/{id}', [orderController::class, 'orderUpdate']);
+Route::get('/status-wise-order/{status}', [orderController::class, 'statusWiseOrder']);
+

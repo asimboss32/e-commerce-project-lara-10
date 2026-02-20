@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('customer_phone');
             $table->string('customer_address');
             $table->double('price');
+            $table->double('delivery_charge');
             $table->string('status')->default('pending');
             $table->string('courier_name')->nullable();
             $table->timestamps();
