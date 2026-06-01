@@ -1,92 +1,133 @@
 @extends('master')
 @section('content')
-  <!-- Product Section -->
-  <!-- Page Header -->
-    <section class="py-4 bg-light">
+    <!-- Page Header -->
+    <section class="py-3 bg-light">
         <div class="container">
-            <h2 class="fw-bold">Shop Products</h2>
-            <p class="text-muted mb-0">Browse all available products</p>
+            <h4 class="fw-bold mb-1">Shop Products</h4>
+            <p class="text-muted small mb-0">Browse all available products</p>
         </div>
     </section>
 
     <!-- Shop Layout -->
-    <section class="py-5">
+    <section class="py-4">
         <div class="container">
-            <div class="row g-4">
+            <div class="row">
 
                 <!-- Filters -->
-                <div class="col-lg-3">
-                    <div class="filter-box p-3">
-                        <h5 class="fw-bold">Categories</h5>
-                        <form action="/product" id="collapseOn" method="GET">
-                            @csrf
+                <div class="col-lg-3 mb-4">
+                    <div class="filter-box p-3 shadow-sm bg-white rounded">
+
+                        <h6 class="fw-bold mb-3">Categories</h6>
+
+                        <form action="/product" method="GET">
                             <ul class="list-unstyled">
-                          @foreach ($categoriesGlobal as $category)
-                                <li><input name="cat_id" id="cat_id" value="{{ $category->id }}" onclick="submitFilterForm()" type="checkbox" class="checkbox"/> {{ $category->name }}</li>
-                          @endforeach
-                        </ul>
+
+                                @foreach ($categoriesGlobal as $category)
+                                    <li class="mb-2">
+                                        <label class="d-flex align-items-center small">
+                                            <input type="radio" name="cat_id" value="{{ $category->id }}" class="me-2"
+                                                onchange="this.form.submit()">
+                                            {{ $category->name }}
+                                        </label>
+                                    </li>
+                                @endforeach
+
+                            </ul>
                         </form>
+
                         <hr>
-                        <h5 class="fw-bold">Price</h5>
-                        <input type="range" class="form-range">
-                        <p class="small">$0 - $500</p>
-                        <hr>
-                        <button class="btn btn-primary w-100">Apply Filter</button>
+
+                        <h6 class="fw-bold mb-3">Price Range</h6>
+
+                        <input type="range" class="form-range" min="0" max="500">
+
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>$0</span>
+                            <span>$500</span>
+                        </div>
+
                     </div>
                 </div>
 
                 <!-- Products -->
                 <div class="col-lg-9">
-                    <div class="row g-4">
+                    <div class="row g-3">
 
-                      @foreach ($products as $product)
-                            <div class="col-md-4">
-                            <div class="card product-card h-100">
-                                <a href="{{ url('/test/'.$product->id) }}"><img
-                                        src="{{asset('backend/images/product/'.$product->image)}}"
-                                        class="card-img-top"></a>
-                                <div class="card-body text-center">
-                                    <a href="{{ url('/test/'.$product->id) }}" class="nav-link text-decoration-none">
-                                        <h6>{{ $product->name }}</h6>
+                        @foreach ($products as $product)
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+
+                                    <a href="{{ url('/test/' . $product->id) }}">
+                                        <img src="{{ asset('backend/images/product/' . $product->image) }}"
+                                            class="card-img-top product-img" alt="{{ $product->name }}">
                                     </a>
-                                    @if ($product->discount_price != null)
-                                    <p class="mb-1">
-                                        <del class="text-muted">${{ $product->regular_price }}</del>
-                                        <span class="badge bg-danger ms-1">{{ $product->discount_percentage }}% OFF</span>
-                                    </p>
-                                    <p class="fw-bold text-primary">${{ $product->discount_price }}</p>
-                                    @else
-                                    <p class="fw-bold text-primary">${{ $product->regular_price }}</p>
-                                    @endif
-                                    <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
+
+                                    <div class="card-body p-2 text-center">
+
+                                        <a href="{{ url('/test/' . $product->id) }}" class="text-decoration-none text-dark">
+                                            <h6 class="small fw-semibold mb-1">
+                                                {{ \Illuminate\Support\Str::limit($product->name, 30) }}
+                                            </h6>
+                                        </a>
+
+                                        @if ($product->discount_price != null)
+                                            <p class="mb-1 small">
+                                                <del class="text-muted">
+                                                    ${{ $product->regular_price }}
+                                                </del>
+                                                <span class="badge bg-danger ms-1">
+                                                    {{ $product->discount_percentage }}% OFF
+                                                </span>
+                                            </p>
+
+                                            <p class="fw-bold text-primary small mb-2">
+                                                ${{ $product->discount_price }}
+                                            </p>
+                                        @else
+                                            <p class="fw-bold text-primary small mb-2">
+                                                ${{ $product->regular_price }}
+                                            </p>
+                                        @endif
+
+                                        <a href="{{ url('/add-to-cart/' . $product->id) }}"
+                                            class="btn btn-sm btn-primary w-100">
+                                            Add to Cart
+                                        </a>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                      @endforeach
-
-                       
+                        @endforeach
 
                     </div>
-
-                    <!-- Pagination -->
-                    <nav class="mt-4">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link">Previous</a></li>
-                            <li class="page-item active"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">Next</a></li>
-                        </ul>
-                    </nav>
-
                 </div>
+
             </div>
         </div>
+    </section>
+
+
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            <li class="page-item active"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">Next</a></li>
+        </ul>
+    </nav>
+
+    </div>
+    </div>
+    </div>
     </section>
 @endsection
 
 @push('script')
     <script>
-        function submitFilterForm(){
+        function submitFilterForm() {
             document.getElementById('collapseOn').submit();
         }
     </script>

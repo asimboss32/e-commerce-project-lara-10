@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-4">
                     <h6 class="fw-bold">Follow Us</h6>
-                    <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/nuralam.shek.98" class="text-light me-3"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
                     <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
                 </div>
@@ -24,5 +24,6 @@
             <p class="text-center text-secondary mb-0 pb-3">
                 © 2026 NurAlom. All rights reserved.
             </p>
+            <p class="text-center mb-0">This website developed by <a href="https://nuralomdev.netlify.app/" class="text-decoration-none">NurAlom</a></p>
         </div>
     </footer>

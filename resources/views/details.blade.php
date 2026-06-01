@@ -90,13 +90,9 @@
                     <a class="btn btn-outline-secondary" onclick="qty(1)">+</a>
                 </div>
 
-                <button class="btn btn-primary btn-lg" type="submit" value="ad_to_cart" name="action">
+                <a href="{{ url('/add-to-cart/' . $products->id) }}" class="btn btn-primary btn-lg">
                     <i class="bi bi-cart-plus"></i> Add to Cart
-                </button>
-                <button class="btn btn-primary btn-lg" type="submit" name="action" value="buy_now">
-                     
-                    <i class="bi bi-cart-plus"></i> Quick Buy
-                </button>
+                </a>
              </form>
 
             </div>

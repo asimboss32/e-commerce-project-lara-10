@@ -30,7 +30,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Add New Product</h3>
                             </div>
-                            <form action="{{ url('product/store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('admin/product/store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

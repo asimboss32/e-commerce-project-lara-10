@@ -24,19 +24,27 @@ class categoryController extends Controller
         $category->name = $request->name;
         $category->slug = str($request->name)->slug();
 
+        if(isset($request->image)){
+           $imageName = rand().'-category-'.'.'.$request->image->extension(); // 85778-category-.jpg
+           $request->image->move('backend/images/category',$imageName);
+
+           $category->image = $imageName;
+        }
+
+
         $category->save();
-        return redirect('/category/list');
+        return redirect('admin/category/list');
     }
     
-    public function categoryEdit($id)
+    public function categoryEdit($slug)
     {
-        $category = category::find($id);
+        $category = category::where('slug', $slug)->first();
         return view('backend.category.category-edit', compact('category'));
     }
 
-    public function categoryUpdate(Request $request, $id)
+    public function categoryUpdate(Request $request, $slug)
     {
-        $category = category::find($id);
+        $category = category::where('slug', $slug)->first();
         $category->name = $request->name;
         $category->slug = str($request->name)->slug();
 
@@ -44,10 +52,10 @@ class categoryController extends Controller
         return redirect('/category/list');
     }
 
-    public function categoryDelete($id)
+    public function categoryDelete($slug)
     {
-        $category = category::find($id);
+        $category = category::where('slug', $slug)->first();
         $category->delete();
-        return redirect('/category/list');
+        return redirect('/admin/category/list');
     }
 }

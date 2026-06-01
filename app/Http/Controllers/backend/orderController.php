@@ -10,7 +10,8 @@ class orderController extends Controller
 {
     public function allOrdersList()
     {
-        $orders = Order::with('orderDetails.product')->get();   //producter data orderDetails er maddhome order er data gula niye asbe.ei karone orderdetails modeler sathe product model tao neoa hoyeche
+        $orders = Order::with('orderDetails.product')->orderBy('id', 'DESC')->paginate(10);   //producter data orderDetails er maddhome order er data gula niye asbe.ei karone orderdetails modeler sathe product model tao neoa hoyeche
+        // dd($orders);
         return view('backend.orders.all-order-list', compact('orders'));
     }
 

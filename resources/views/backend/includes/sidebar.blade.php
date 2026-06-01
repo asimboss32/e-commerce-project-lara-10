@@ -36,7 +36,7 @@
           <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
-                  <li class="nav-item menu-open">
+                  <li class="nav-item ">
                       <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -46,13 +46,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/category/list') }}" class="nav-link">
+                              <a href="{{ url('admin/category/list') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>List</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/category/add') }}" class="nav-link">
+                              <a href="{{ url('admin/category/add') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Add</p>
                               </a>
@@ -60,7 +60,7 @@
                       </ul>
                   </li>
                  
-                  <li class="nav-item menu-open">
+                  <li class="nav-item ">
                       <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -70,20 +70,20 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/product/list/') }}" class="nav-link">
+                              <a href="{{ url('admin/product/list/') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>List</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{url('/product/add')}}" class="nav-link">
+                              <a href="{{url('admin/product/add')}}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Add</p>
                               </a>
                           </li>
                       </ul>
                   </li>
-                  <li class="nav-item menu-open">
+                  <li class="nav-item ">
                       <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -93,38 +93,38 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/all-orders/list') }}" class="nav-link">
+                              <a href="{{ url('admin/all-orders/list') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>All Order List</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/status-wise-order/pending') }}" class="nav-link">
+                              <a href="{{ url('admin/status-wise-order/pending') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Pending Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/status-wise-order/confirmed') }}" class="nav-link">
+                              <a href="{{ url('admin/status-wise-order/confirmed') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Confirmed Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/status-wise-order/delivered') }}" class="nav-link">
+                              <a href="{{ url('admin/status-wise-order/delivered') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Deliverd Orders</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/status-wise-order/cancelled') }}" class="nav-link">
+                              <a href="{{ url('admin/status-wise-order/cancelled') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Cancelled Orders</p>
                               </a>
                           </li>
                       </ul>
                   </li>
-                  <li class="nav-item menu-open">
+                  <li class="nav-item ">
                       <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -153,7 +153,7 @@
                           </li>
                       </ul>
                   </li>
-                  <li class="nav-item menu-open">
+                  <li class="nav-item ">
                       <a href="#" class="nav-link active">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>

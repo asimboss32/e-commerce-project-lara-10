@@ -84,7 +84,7 @@ class productController extends Controller
 
        
     }
-     return redirect('/product/list');
+     return redirect('admin/product/list');
 
 }
 
@@ -231,7 +231,7 @@ public function productDelete($id)
         $product->description = $request->description;
         $product->save();
 
-        return redirect('/product/list');
+        return redirect('admin/product/list');
     }
 
 }

@@ -55,7 +55,7 @@ class frontendController extends Controller
         return view('contact');
     }
 
-    public function test($id)
+    public function test($id)   //ekhane test product details er jonno
     {
         $products = product::with('colors', 'sizes', 'galleryImages', 'reviews')->where('id', $id)->first();
         return view('details', compact('products'));
@@ -129,15 +129,15 @@ class frontendController extends Controller
     {
         $order = new Order();      //Create a order object
 
-        $previousOrder = Order::orderBy('id', 'desc')->first();  //Get the last order from the database
+        $lastOrder = Order::orderBy('id', 'desc')->first();  //Get the last order from the database
 
-        if ($previousOrder == null) {
-            $generateInvoiceNo = "nur-1";            //Generate a unique invoice number
-            $order->invoice_no = $generateInvoiceNo;
-        } elseif ($previousOrder != null) {
-            $generateInvoiceNo = "nur-1" . ($previousOrder->id + 1);            //Generate a unique invoice number
-            $order->invoice_no = $generateInvoiceNo;
-        }
+        if ($lastOrder) {
+    $invoiceNumber = $lastOrder->id + 1;
+} else {
+    $invoiceNumber = 1;
+}
+
+       $order->invoice_no = "NUR-" . $invoiceNumber;
         $order->customer_name = $request->customer_name;
         $order->customer_phone = $request->customer_phone;
         $order->customer_address = $request->customer_address;
@@ -167,7 +167,7 @@ class frontendController extends Controller
             return redirect()->back();
         }
 
-        return redirect('confirmed-orders/' . $generateInvoiceNo);
+        return redirect('confirmed-orders/' . $invoiceNumber);
     }
 
     public function thankYou($invoice_no)

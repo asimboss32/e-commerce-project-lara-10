@@ -28,9 +28,9 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Category</h3>
+                                <h3 class="card-title">Edit Category</h3>
                             </div>
-                            <form action="{{url('/category/update/'.$category->id)}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{url('admin/category/update/'.$category->slug)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

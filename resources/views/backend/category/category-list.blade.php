@@ -45,12 +45,12 @@
                   <tr>
                     <td>{{ $loop->index+1 }}</td>
                     <td>{{ $category->name }}</td>
-                    {{-- <td>
-                        <img src="" height="100" width="100">
-                    </td> --}}
                     <td>
-                        <a href="{{url('/category/edit/'.$category->id)}}" class="btn btn-primary">Edit</a>
-                        <a href="{{url('/category/delete/'.$category->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                        <img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100">
+                    </td>
+                    <td>
+                        <a href="{{url('admin/category/edit/'.$category->slug)}}" class="btn btn-primary">Edit</a>
+                        <a href="{{url('admin/category/delete/'.$category->slug)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                  @endforeach

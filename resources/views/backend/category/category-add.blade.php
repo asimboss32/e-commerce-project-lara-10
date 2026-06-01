@@ -30,23 +30,23 @@
                             <div class="card-header">
                                 <h3 class="card-title">Add New Category</h3>
                             </div>
-                            <form action="{{url('/category/store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{url('admin/category/store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Category Name*</label>
                                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter category name*" required>
                                     </div>
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="exampleInputFile">Category Image*</label>
-                                        <div class="input-group"> --}}
-                                            {{-- <div class="custom-file">
+                                        <div class="input-group"> 
+                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="image" id="image" accept="image/*" required>
                                                 <label class="custom-file-label" for="image">Choose file</label>
-                                            </div> --}}
-                                            {{-- <div class="input-group-append">
+                                            </div> 
+                                            <div class="input-group-append">
                                                 <span class="input-group-text">Upload</span>
-                                            </div> --}}
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>

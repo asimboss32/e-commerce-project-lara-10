@@ -8,82 +8,85 @@
             <a href="#products" class="btn btn-primary btn-lg mt-3">Shop Now</a>
         </div>
     </section>
-
-    <!-- Categories -->
     <section id="categories" class="py-5">
         <div class="container">
             <h2 class="text-center fw-bold mb-4">Shop by Category</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card category-card">
-                        <a href="{{ url('/category') }}"><img
-                                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" class="card-img-top"></a>
-                        <div class="card-body text-center">
-                            <a href="{{ url('/category') }}" class="nav-link text-decoration-none">
-                                <h5>Fashion</h5>
+
+            <div class="category-slider d-flex overflow-auto">
+
+                @foreach ($categoriesGlobal as $category)
+                    <div class="category-item">
+                        <div class="card category-card">
+                            <a href="{{ url('/category/' . $category->id) }}">
+                                <img src="{{ asset('backend/images/category/' . $category->image) }}" class="card-img-top">
                             </a>
+                            <div class="card-body text-center p-2">
+                                <a href="{{ url('/category/' . $category->id) }}" class="text-decoration-none text-dark">
+                                    <h6 class="mb-0">{{ $category->name }}</h6>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card category-card">
-                        <a href="{{ url('/category') }}"><img
-                                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" class="card-img-top"></a>
-                        <div class="card-body text-center">
-                            <a href="{{ url('/category') }}" class="nav-link text-decoration-none">
-                                <h5>Electronics</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card category-card">
-                        <a href="{{ url('/category') }}"><img
-                                src="https://images.unsplash.com/photo-1503602642458-232111445657" class="card-img-top"></a>
-                        <div class="card-body text-center">
-                            <a href="{{ url('/category') }}" class="nav-link text-decoration-none">
-                                <h5>Accessories</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
 
     <!-- Products -->
-    <section id="products" class="py-5 bg-light">
+    <section id="products" class="py-4 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold mb-4">Featured Products</h2>
-            <div class="row g-4">
+            <h4 class="text-center fw-bold mb-4">Featured Products</h4>
 
-                <!-- Product -->
-              @foreach ($products as $product)
+            <div class="row g-3">
 
-                  <div class="col-md-3">
-                    <div class="card product-card h-100 text-center ">
-                        <a href="{{ url('/test/'.$product->id) }}"><img
-                                src="{{asset('backend/images/product/'.$product->image)}}" class="card-img-top"></a>
-                        <div class="card-body">
-                            <a href="{{ url('/test/'.$product->id) }}" class="nav-link text-decoration-none">
-                                <h6>{{ $product->name }}</h6>
+                @foreach ($products as $product)
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card product-card border-0 shadow-sm h-100 text-center">
+
+                            <!-- Product Image -->
+                            <a href="{{ url('/test/' . $product->id) }}">
+                                <img src="{{ asset('backend/images/product/' . $product->image) }}"
+                                    class="card-img-top img-fluid product-img" alt="{{ $product->name }}">
                             </a>
-                            @if ($product->discount_price != null)
-                                  <p class="mb-1">
-                                <del class="text-muted">${{ $product->regular_price }}</del>
-                                <span class="badge bg-danger ms-1">{{ $product->discount_percentage }}% OFF</span>
-                            </p>
-                            <p class="fw-bold text-primary">${{ $product->discount_price }}</p>
-                            @else
-                            <p class="fw-bold text-primary">${{ $product->regular_price }}</p>
-                            @endif
-                          
-                            <button class="btn btn-outline-primary btn-sm"><a class="text-decoration-none" href="{{ url('/add-to-cart/'.$product->id) }}">Add to Cart</a></button>
+
+                            <div class="card-body p-2">
+
+                                <!-- Product Name -->
+                                <a href="{{ url('/test/' . $product->id) }}" class="text-dark text-decoration-none">
+                                    <h6 class="mb-1 small fw-semibold">
+                                        {{ Str::limit($product->name, 35) }}
+                                    </h6>
+                                </a>
+
+                                <!-- Price Section -->
+                                @if ($product->discount_price != null)
+                                    <p class="mb-1 small">
+                                        <del class="text-muted">
+                                            ${{ $product->regular_price }}
+                                        </del>
+                                        <span class="badge bg-danger ms-1">
+                                            {{ $product->discount_percentage }}% OFF
+                                        </span>
+                                    </p>
+                                    <p class="fw-bold text-primary mb-2 small">
+                                        ${{ $product->discount_price }}
+                                    </p>
+                                @else
+                                    <p class="fw-bold text-primary mb-2 small">
+                                        ${{ $product->regular_price }}
+                                    </p>
+                                @endif
+
+                                <!-- Button -->
+                                <a href="{{ url('/add-to-cart/' . $product->id) }}" class="btn btn-sm btn-primary w-100">
+                                    Add to Cart
+                                </a>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-  
-              @endforeach
+                @endforeach
 
             </div>
         </div>

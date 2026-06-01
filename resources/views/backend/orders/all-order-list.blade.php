@@ -71,22 +71,24 @@
                                             <span class="badge {{ $statusClass }}">{{ ucfirst($order->status) }}</span>
                                         </td>
                                         <td>
-                                            <a href="{{ url('/order/update-status/pending/'.$order->id) }}" class="btn btn-warning">Pending</a>
-                                            <a href="{{ url('/order/update-status/confirmed/'.$order->id) }}" class="btn btn-success">Confirm</a>
-                                            <a href="{{ url('/order/update-status/delivered/'.$order->id) }}" class="btn btn-info">Delivered</a>
-                                            <a href="{{ url('/order/update-status/cancelled/'.$order->id) }}" class="btn btn-danger">Cancel</a>
+                                            <a href="{{ url('admin/order/update-status/pending/'.$order->id) }}" class="btn btn-warning">Pending</a>
+                                            <a href="{{ url('admin/order/update-status/confirmed/'.$order->id) }}" class="btn btn-success">Confirm</a>
+                                            <a href="{{ url('admin/order/update-status/delivered/'.$order->id) }}" class="btn btn-info">Delivered</a>
+                                            <a href="{{ url('admin/order/update-status/cancelled/'.$order->id) }}" class="btn btn-danger">Cancel</a>
                                         </td>
                                         <td>
-                                            <a href="{{ url('/order/edit/'.$order->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('admin/order/edit/'.$order->id) }}" class="btn btn-primary">Edit</a>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $orders->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 </div>
